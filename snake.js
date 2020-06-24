@@ -3,8 +3,8 @@ const ctx = canvas.getContext("2d");
 
 const grid = 40;
 let score = 0;
-let speed = 220;
-let apple = [5, 5];
+let speed = 1000;
+let apple = [0, 1];
 const snake = [
   [9, 9],
   [8, 9],
@@ -15,7 +15,7 @@ let direction = "e";
 
 const drawMap = () => {
   ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, 800, 800);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 };
 
 const drawSnake = () => {
@@ -23,6 +23,7 @@ const drawSnake = () => {
   for (let body of snake) {
     ctx.fillRect(body[0] * grid, body[1] * grid, grid, grid);
   }
+  console.log(snake[0]);
 };
 
 const drawApple = () => {
@@ -72,14 +73,6 @@ const gameOver = () => {
   return false;
 };
 
-const drawScore = () => {
-  ctx.beginPath();
-  ctx.fillStyle = "#EAC96F";
-  ctx.textAlign;
-  ctx.font = "30px Arial sans-serif";
-  ctx.fillText(`Score: ${score}`, 40, 40);
-};
-
 const generateApple = () => {
   score++;
   if (score % 5 === 0) {
@@ -88,7 +81,6 @@ const generateApple = () => {
       speed = 100;
     }
   }
-  console.log(speed);
   const [x, y] = [
     Math.trunc(Math.random() * 20),
     Math.trunc(Math.random() * 20),
@@ -129,6 +121,13 @@ const newSnakePosition = () => {
   }
 
   return gameOver();
+};
+
+const drawScore = () => {
+  ctx.fillStyle = "#EAC96F";
+  ctx.textAlign;
+  ctx.font = "30px Arial sans-serif";
+  ctx.fillText(`Score: ${score}`, 80, 100);
 };
 
 const reappearSnake = () => {
