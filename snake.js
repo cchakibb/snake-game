@@ -77,7 +77,7 @@ const drawScore = () => {
   ctx.fillStyle = "#EAC96F";
   ctx.textAlign;
   ctx.font = "30px Arial sans-serif";
-  ctx.fillText(`Points: ${score}`, 40, 40);
+  ctx.fillText(`Score: ${score}`, 40, 40);
 };
 
 const generateApple = () => {
