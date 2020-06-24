@@ -3,8 +3,8 @@ const ctx = canvas.getContext("2d");
 
 const grid = 40;
 let score = 0;
-let speed = 1000;
-let apple = [0, 1];
+let speed = 240;
+let apple = [5, 6];
 const snake = [
   [9, 9],
   [8, 9],
