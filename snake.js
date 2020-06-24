@@ -1,9 +1,13 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
+const easy = document.querySelector("#easy");
+const medium = document.querySelector("#medium");
+const hard = document.querySelector("#hard");
+
 const grid = 40;
-const speed = 800;
 let score = 0;
+let speed = 220;
 let apple = [5, 5];
 const snake = [
   [9, 9],
@@ -82,6 +86,13 @@ const drawScore = () => {
 
 const generateApple = () => {
   score++;
+  if (score % 5 === 0) {
+    speed -= 20;
+    if (speed < 100) {
+      speed = 100;
+    }
+  }
+  console.log(speed);
   const [x, y] = [
     Math.trunc(Math.random() * 20),
     Math.trunc(Math.random() * 20),
@@ -162,7 +173,8 @@ const move = () => {
     reappearSnake();
     setTimeout(() => {
       requestAnimationFrame(move);
-    }, 1000 - speed);
+    }, speed);
   }
 };
+
 requestAnimationFrame(move);
