@@ -1,10 +1,6 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-const easy = document.querySelector("#easy");
-const medium = document.querySelector("#medium");
-const hard = document.querySelector("#hard");
-
 const grid = 40;
 let score = 0;
 let speed = 220;
